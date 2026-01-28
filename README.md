@@ -92,9 +92,8 @@ Full Adder
 8-bit Adder
 <img width="1823" height="456" alt="image" src="https://github.com/user-attachments/assets/64a9b35f-ba48-46b5-88a0-43872d0b1b1e" />
 
-8-bit Subtractor & Comparator
+8-bit Subtractor & Comparator:
 Subtraction and all comparison operations were consolidated into a single shared arithmetic path: one subtractor simultaneously supports A − B, A == B, A > B, and A < B through flag logic
-.<img width="3092" height="81" alt="image" src="https://github.com/user-attachments/assets/6a35f34f-e2ee-49f8-afa3-8161aaa7c33b" />
 <img width="1372" height="732" alt="image" src="https://github.com/user-attachments/assets/b75942cb-632c-4bbe-b69a-b59e5d5184ea" />
 <img width="835" height="411" alt="image" src="https://github.com/user-attachments/assets/e049605a-2685-4c5c-839a-ae6e9e7717f2" />
 
