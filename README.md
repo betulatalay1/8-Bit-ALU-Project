@@ -60,17 +60,44 @@ Each of the following has:
 ✔ Physical layout
 ✔ LTspice simulation
 
-Inverter
+8-Bit Inverter
 <img width="1140" height="284" alt="image" src="https://github.com/user-attachments/assets/2454dbac-d28d-4baa-8edf-33ebc2356c00" />
 <img width="1154" height="191" alt="image" src="https://github.com/user-attachments/assets/97977758-620c-4d3a-a4e8-f4805542a416" />
 
-NAND, NOR, XOR
+8-Bit NAND
+<img width="1374" height="269" alt="image" src="https://github.com/user-attachments/assets/df4777ec-8604-4092-8dda-b4452f93a2d5" />
+<img width="1353" height="198" alt="image" src="https://github.com/user-attachments/assets/6fe6d5ff-2469-4219-a42f-51b049569bf6" />
 
-Half Adder, Full Adder
+8-Bit NOR
+<img width="1518" height="329" alt="image" src="https://github.com/user-attachments/assets/fd68d957-6d93-4c33-b33e-0fac9c5bdd20" />
+<img width="1357" height="233" alt="image" src="https://github.com/user-attachments/assets/7cf85aee-cd2d-444b-9c6e-eadf9bc17108" />
+
+8-Bit AND
+<img width="1427" height="564" alt="image" src="https://github.com/user-attachments/assets/aeffa648-8dd1-48f1-b0ed-e2d58bfe2a28" />
+
+8-Bit OR
+<img width="1500" height="688" alt="image" src="https://github.com/user-attachments/assets/71f3175a-45db-48f9-af27-feda701f6c6d" />
+
+8-Bit XOR
+<img width="1582" height="634" alt="image" src="https://github.com/user-attachments/assets/06b2e31c-313f-4ed8-acad-78f124d9d74e" />
+
+Half Adder
+<img width="960" height="419" alt="image" src="https://github.com/user-attachments/assets/78497acf-754b-4c90-8e22-40244eee57ac" />
+<img width="999" height="325" alt="image" src="https://github.com/user-attachments/assets/ca8532b7-9f2c-482a-8486-f299ae6eb863" />
+
+Full Adder
+<img width="1179" height="675" alt="image" src="https://github.com/user-attachments/assets/09be5a14-b9d0-48d1-81ac-36a5dc2ae004" />
+<img width="1187" height="376" alt="image" src="https://github.com/user-attachments/assets/cffb1809-e41f-4fda-864a-fc94e3b4e630" />
 
 8-bit Adder
+<img width="1823" height="456" alt="image" src="https://github.com/user-attachments/assets/64a9b35f-ba48-46b5-88a0-43872d0b1b1e" />
 
-8-bit Subtractor
+8-bit Subtractor & Comparator
+Subtraction and all comparison operations were consolidated into a single shared arithmetic path: one subtractor simultaneously supports A − B, A == B, A > B, and A < B through flag logic
+.<img width="3092" height="81" alt="image" src="https://github.com/user-attachments/assets/6a35f34f-e2ee-49f8-afa3-8161aaa7c33b" />
+<img width="1372" height="732" alt="image" src="https://github.com/user-attachments/assets/b75942cb-632c-4bbe-b69a-b59e5d5184ea" />
+<img width="835" height="411" alt="image" src="https://github.com/user-attachments/assets/e049605a-2685-4c5c-839a-ae6e9e7717f2" />
+
 
 Zero Flag Generator
 
