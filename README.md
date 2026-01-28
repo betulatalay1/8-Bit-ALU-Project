@@ -15,18 +15,25 @@ All circuits were implemented as true transistor-level CMOS designs, not using a
 
 The entire project follows a fully modular and hierarchical design approach:
 Each function was first designed as a 1-bit building block
-Then scaled to an 8-bit version
+Then scaled to an 8-bit version.
 
 Each block includes:
+
 ✅ Transistor-level schematic
+
 ✅ Physical layout
+
 ✅ Simulation testbench
 
 Finally, the 8-bit ALU was constructed by combining all 8-bit sub-blocks using a hierarchical multiplexer-based selection network.
 This methodology significantly improved:
+
 ✅Debuggability
+
 ✅Reusability
+
 ✅Layout consistency
+
 ✅Verification reliability
 
 ⚙️ Supported Operations (Opcode Set)
@@ -77,7 +84,7 @@ Full Adder
 <img width="1823" height="456" alt="image" src="https://github.com/user-attachments/assets/64a9b35f-ba48-46b5-88a0-43872d0b1b1e" />
 
 8-bit Subtractor & Comparator:
-Subtraction and all comparison operations were consolidated into a single shared arithmetic path: one subtractor simultaneously supports A − B, A == B, A > B, and A < B through flag logic
+Subtraction and all comparison operations were consolidated into a single shared arithmetic path: one subtractor simultaneously supports A − B, A == B, A > B, and A < B through flag logic.
 <img width="1372" height="732" alt="image" src="https://github.com/user-attachments/assets/b75942cb-632c-4bbe-b69a-b59e5d5184ea" />
 <img width="835" height="411" alt="image" src="https://github.com/user-attachments/assets/e049605a-2685-4c5c-839a-ae6e9e7717f2" />
 
@@ -96,17 +103,16 @@ Arithmetic Shifters : Right
 <img width="1373" height="634" alt="image" src="https://github.com/user-attachments/assets/e3d2a700-4db2-4535-8b89-9d48f7f13c44" />
 
 16:1 MUX (Transmission Gate based)
+
 Instead of building a flat 16:1 directly, I first created reusable 2:1 MUX cells, then combined them into 4:1 MUX modules, and finally constructed the 16:1 selection by composing these 4:1 blocks. This modular hierarchy reduced design risk, simplified verification, and allowed layout reuse—each level (2:1 → 4:1 → 16:1) was validated in schematic and simulation before integration into the top-level ALU.
 Using transmission-gate-based 2:1 multiplexers instead of conventional CMOS MUXes significantly reduces transistor count and routing complexity, yielding a substantial area advantage in the opcode selection network.
 <img width="488" height="605" alt="image" src="https://github.com/user-attachments/assets/7a70d78b-dab0-49bc-9f59-52ae0b98efb5" />
 <img width="784" height="562" alt="image" src="https://github.com/user-attachments/assets/c2cc4757-30b6-4c26-8377-4ad07fe36630" />
 
-
+✔ Full top-level ALU schematic is complete and verified.
+<img width="881" height="894" alt="image" src="https://github.com/user-attachments/assets/a8f3ad4f-dbf5-40d6-9dbc-e10ccfb20b6f" />
 🏗️ Top-Level Integration Status
 <img width="1748" height="809" alt="image" src="https://github.com/user-attachments/assets/63aacb5f-2c5d-453a-9889-834cfdc028cb" />
-
-✔ Full top-level ALU schematic is complete and verified
-<img width="881" height="894" alt="image" src="https://github.com/user-attachments/assets/a8f3ad4f-dbf5-40d6-9dbc-e10ccfb20b6f" />
 
 🛠️ Tools Used
 Electric VLSI → Schematic + Layout
