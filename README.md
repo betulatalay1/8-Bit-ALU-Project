@@ -111,6 +111,7 @@ Using transmission-gate-based 2:1 multiplexers instead of conventional CMOS MUXe
 
 ✔ Full top-level ALU schematic is complete and verified.
 <img width="881" height="894" alt="image" src="https://github.com/user-attachments/assets/a8f3ad4f-dbf5-40d6-9dbc-e10ccfb20b6f" />
+
 🏗️ Top-Level Integration Status
 <img width="1748" height="809" alt="image" src="https://github.com/user-attachments/assets/63aacb5f-2c5d-453a-9889-834cfdc028cb" />
 
