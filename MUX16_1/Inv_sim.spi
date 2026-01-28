@@ -1,0 +1,22 @@
+*** SPICE deck for cell Inv_sim{sch} from library Inverter
+*** Created on Cum Ara 12, 2025 15:53:39
+*** Last revised on Cmt Ara 20, 2025 21:51:50
+*** Written on Cmt Ara 20, 2025 21:51:54 by Electric VLSI Design System, version 9.08
+*** Layout tech: mocmos, foundry MOSIS
+*** UC SPICE *** , MIN_RESIST 4.0, MIN_CAPAC 0.1FF
+
+*** SUBCIRCUIT Inverter__Inv FROM CELL Inverter:Inv{sch}
+.SUBCKT Inverter__Inv in out
+** GLOBAL gnd
+** GLOBAL vdd
+Mnmos@0 out in gnd gnd N L=0.6U W=3U
+Mpmos@0 vdd in out vdd P L=0.6U W=3U
+.ENDS Inverter__Inv
+
+.global gnd vdd
+
+*** TOP LEVEL CELL: Inverter:Inv_sim{sch}
+XInv@0 in out Inverter__Inv
+* Trailer cards described in this file:
+.include C:\Users\betul\OneDrive\Desktop\4-FALL\IC\C5_models.txt
+.END

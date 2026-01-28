@@ -1,0 +1,7 @@
+Circuit: *** SPICE deck for cell Inv_sim{sch} from library Inverter
+
+Ignoring BSIM parameter XL
+Ignoring BSIM parameter XW
+Ignoring BSIM parameter XL
+Ignoring BSIM parameter XW
+Fatal Error: No analysis request found.

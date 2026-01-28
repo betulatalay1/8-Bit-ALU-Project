@@ -1,0 +1,51 @@
+*** SPICE deck for cell HalfAdder{lay} from library HalfAdder
+*** Created on Pzt Ara 15, 2025 21:07:44
+*** Last revised on Pzt Ara 15, 2025 22:55:53
+*** Written on Pzt Ara 15, 2025 22:55:56 by Electric VLSI Design System, version 9.08
+*** Layout tech: mocmos, foundry MOSIS
+*** UC SPICE *** , MIN_RESIST 4.0, MIN_CAPAC 0.1FF
+
+*** SUBCIRCUIT Inverter__Inv FROM CELL Inverter:Inv{lay}
+.SUBCKT Inverter__Inv gnd in out vdd
+Mnmos@0 gnd in out gnd N L=0.6U W=3U AS=6.75P AD=18P PS=10.5U PD=28.5U
+Mpmos@0 vdd in out vdd P L=0.6U W=3U AS=6.75P AD=20.25P PS=10.5U PD=29.1U
+.ENDS Inverter__Inv
+
+*** SUBCIRCUIT NandGate__NAND FROM CELL NandGate:NAND{lay}
+.SUBCKT NandGate__NAND A AB B gnd vdd
+Mnmos@1 AB A net@6 gnd N L=0.6U W=3U AS=2.7P AD=5.25P PS=4.8U PD=7.5U
+Mnmos@2 net@6 B gnd gnd N L=0.6U W=3U AS=20.25P AD=2.7P PS=31.5U PD=4.8U
+Mpmos@0 vdd A AB vdd P L=0.6U W=3U AS=5.25P AD=13.5P PS=7.5U PD=21U
+Mpmos@1 AB B vdd vdd P L=0.6U W=3U AS=13.5P AD=5.25P PS=21U PD=7.5U
+.ENDS NandGate__NAND
+
+*** SUBCIRCUIT XorGate__XOR FROM CELL XOR{lay}
+.SUBCKT XorGate__XOR A B gnd out vdd
+Mnmos@0 net@6 A out gnd N L=0.6U W=3U AS=4.275P AD=5.4P PS=5.85U PD=8.1U
+Mnmos@1 out net@17 net@6 gnd N L=0.6U W=3U AS=5.4P AD=4.275P PS=8.1U PD=5.85U
+Mnmos@2 net@6 net@28 gnd gnd N L=0.6U W=3U AS=17.775P AD=5.4P PS=25.35U PD=8.1U
+Mnmos@3 gnd B net@6 gnd N L=0.6U W=3U AS=5.4P AD=17.775P PS=8.1U PD=25.35U
+Mnmos@4 gnd A net@28 gnd N L=0.6U W=3U AS=6.75P AD=17.775P PS=10.5U PD=25.35U
+Mnmos@5 net@17 B gnd gnd N L=0.6U W=3U AS=17.775P AD=6.75P PS=25.35U PD=10.5U
+Mpmos@0 vdd A net@1 vdd P L=0.6U W=3U AS=2.25P AD=21.6P PS=4.5U PD=27.9U
+Mpmos@2 net@1 net@17 out vdd P L=0.6U W=3U AS=4.275P AD=2.25P PS=5.85U PD=4.5U
+Mpmos@3 out net@28 net@4 vdd P L=0.6U W=3U AS=2.7P AD=4.275P PS=4.8U PD=5.85U
+Mpmos@4 net@4 B vdd vdd P L=0.6U W=3U AS=21.6P AD=2.7P PS=27.9U PD=4.8U
+Mpmos@5 vdd A net@28 vdd P L=0.6U W=3U AS=6.75P AD=21.6P PS=10.5U PD=27.9U
+Mpmos@6 net@17 B vdd vdd P L=0.6U W=3U AS=21.6P AD=6.75P PS=27.9U PD=10.5U
+.ENDS XorGate__XOR
+
+*** TOP LEVEL CELL: HalfAdder:HalfAdder{lay}
+XInv@0 gnd net@55 C vdd Inverter__Inv
+XNAND@0 A net@55 B gnd vdd NandGate__NAND
+XXOR@0 A B gnd S vdd XorGate__XOR
+
+* Spice Code nodes in cell cell 'HalfAdder:HalfAdder{lay}'
+vdd vdd 0 DC 5 
+va A 0 DC pwl 10n 0 20n 5 50n 5 60n 0 90n 0 100n 5 130n 5 140n 0 170n 0 180n 5
+vb B 0 DC pwl 10n 0 20n 5 100n 5 110n 0 
+.tran 200n 
+.include C:\Users\betul\OneDrive\Desktop\4-FALL\IC\C5_models.txt
+* Trailer cards described in this file:
+.include C:\Users\betul\OneDrive\Desktop\4-FALL\IC\C5_models.txt
+.END

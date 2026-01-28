@@ -1,0 +1,49 @@
+*** SPICE deck for cell 1Bit_COMP{lay} from library 1Bit_COMP
+*** Created on Çar Ara 24, 2025 18:38:41
+*** Last revised on Çar Ara 24, 2025 19:05:05
+*** Written on Çar Ara 24, 2025 19:05:08 by Electric VLSI Design System, version 9.08
+*** Layout tech: mocmos, foundry MOSIS
+*** UC SPICE *** , MIN_RESIST 4.0, MIN_CAPAC 0.1FF
+
+*** SUBCIRCUIT Inverter_for1Comp__Inv FROM CELL Inverter_for1Comp:Inv{lay}
+.SUBCKT Inverter_for1Comp__Inv gnd in out vdd
+Mnmos@0 gnd in out gnd N L=0.6U W=3U AS=6.75P AD=18P PS=10.5U PD=28.5U
+Mpmos@0 vdd in out vdd P L=0.6U W=3U AS=6.75P AD=20.25P PS=10.5U PD=29.1U
+.ENDS Inverter_for1Comp__Inv
+
+*** SUBCIRCUIT NandGate_for1Comp__NAND FROM CELL NandGate_for1Comp:NAND{lay}
+.SUBCKT NandGate_for1Comp__NAND A AB B gnd vdd
+Mnmos@1 AB A net@6 gnd N L=0.6U W=3U AS=2.7P AD=5.25P PS=4.8U PD=7.5U
+Mnmos@2 net@6 B gnd gnd N L=0.6U W=3U AS=20.25P AD=2.7P PS=31.5U PD=4.8U
+Mpmos@0 vdd A AB vdd P L=0.6U W=3U AS=5.25P AD=13.5P PS=7.5U PD=21U
+Mpmos@1 AB B vdd vdd P L=0.6U W=3U AS=13.5P AD=5.25P PS=21U PD=7.5U
+.ENDS NandGate_for1Comp__NAND
+
+*** SUBCIRCUIT NorGate_for1Comp__NOR FROM CELL NOR{lay}
+.SUBCKT NorGate_for1Comp__NOR A AorB B gnd vdd
+Mnmos@0 gnd A AorB gnd N L=0.6U W=3U AS=5.25P AD=13.5P PS=7.5U PD=21U
+Mnmos@1 AorB B gnd gnd N L=0.6U W=3U AS=13.5P AD=5.25P PS=21U PD=7.5U
+Mpmos@0 vdd A net@6 vdd P L=0.6U W=3U AS=2.25P AD=22.95P PS=4.5U PD=32.1U
+Mpmos@1 net@6 B AorB vdd P L=0.6U W=3U AS=5.25P AD=2.25P PS=7.5U PD=4.5U
+.ENDS NorGate_for1Comp__NOR
+
+*** TOP LEVEL CELL: 1Bit_COMP:1Bit_COMP{lay}
+XInv@0 gnd A net@0 vdd Inverter_for1Comp__Inv
+XInv@1 gnd B net@59 vdd Inverter_for1Comp__Inv
+XInv@2 gnd net@10 AlessB vdd Inverter_for1Comp__Inv
+XInv@3 gnd net@12 AbigB vdd Inverter_for1Comp__Inv
+XNAND@0 net@0 net@10 B gnd vdd NandGate_for1Comp__NAND
+XNAND@1 A net@12 net@59 gnd vdd NandGate_for1Comp__NAND
+XNOR@0 AlessB AeqB AbigB gnd vdd NorGate_for1Comp__NOR
+
+* Spice Code nodes in cell cell '1Bit_COMP:1Bit_COMP{lay}'
+vdd vdd 0 DC 5
+va A 0 DC pwl 10n 0 20n 5 50n 5 60n 0 90n 0 100n 5 130n 5 140n 0 170n 0 180n 5
+vb B 0 DC pwl 10n 0 20n 5 100n 5 110n 0 
+.measure tran tf trig v(AB) val=4.5 fall=1 td=4ns targ v(AB) val=0.5 fall=1 
+.measure tran tr trig v(AB) val=0.5 rise=1 td=4ns targ v(AB) val=4.5 rise=1 
+.tran 200n 
+.include C:\Users\betul\OneDrive\Desktop\4-FALL\IC\C5_models.txt
+* Trailer cards described in this file:
+.include C:\Users\betul\OneDrive\Desktop\4-FALL\IC\C5_models.txt
+.END

@@ -1,0 +1,57 @@
+*** SPICE deck for cell a_right_shift{sch} from library a_right_shift
+*** Created on Cmt Ara 27, 2025 00:22:15
+*** Last revised on Cmt Ara 27, 2025 16:01:10
+*** Written on Cmt Ara 27, 2025 16:01:32 by Electric VLSI Design System, version 9.08
+*** Layout tech: mocmos, foundry MOSIS
+*** UC SPICE *** , MIN_RESIST 4.0, MIN_CAPAC 0.1FF
+
+*** SUBCIRCUIT Inverter__Inv FROM CELL Inverter:Inv{sch}
+.SUBCKT Inverter__Inv in out
+** GLOBAL gnd
+** GLOBAL vdd
+Mnmos@0 out in gnd gnd N L=0.6U W=3U
+Mpmos@0 vdd in out vdd P L=0.6U W=3U
+.ENDS Inverter__Inv
+
+*** SUBCIRCUIT _8Bit_Inv__8Bit_Inv FROM CELL 8Bit_Inv:8Bit_Inv{sch}
+.SUBCKT _8Bit_Inv__8Bit_Inv A0 A1 A2 A3 A4 A5 A6 A7 Y0 Y1 Y2 Y3 Y4 Y5 Y6 Y7
+** GLOBAL gnd
+** GLOBAL vdd
+XInv@0 A0 Y0 Inverter__Inv
+XInv@1 A1 Y1 Inverter__Inv
+XInv@2 A2 Y2 Inverter__Inv
+XInv@3 A3 Y3 Inverter__Inv
+XInv@4 A4 Y4 Inverter__Inv
+XInv@5 A5 Y5 Inverter__Inv
+XInv@6 A6 Y6 Inverter__Inv
+XInv@7 A7 Y7 Inverter__Inv
+.ENDS _8Bit_Inv__8Bit_Inv
+
+*** SUBCIRCUIT buf_8__buf_8 FROM CELL buf_8:buf_8{sch}
+.SUBCKT buf_8__buf_8 A0 A1 A2 A3 A4 A5 A6 A7 Y0 Y1 Y2 Y3 Y4 Y5 Y6 Y7
+** GLOBAL gnd
+** GLOBAL vdd
+X_8Bit_Inv@0 A0 A1 A2 A3 A4 A5 A6 A7 net@0 net@1 net@2 net@3 net@4 net@5 net@6 net@7 _8Bit_Inv__8Bit_Inv
+X_8Bit_Inv@1 net@0 net@1 net@2 net@3 net@4 net@5 net@6 net@7 Y0 Y1 Y2 Y3 Y4 Y5 Y6 Y7 _8Bit_Inv__8Bit_Inv
+.ENDS buf_8__buf_8
+
+.global gnd vdd
+
+*** TOP LEVEL CELL: a_right_shift{sch}
+Xbuf_8@0 in1 in2 in3 in4 in5 in6 gnd in7 Y0 Y1 Y2 Y3 Y4 Y5 Y6 Y7 buf_8__buf_8
+
+* Spice Code nodes in cell cell 'a_right_shift{sch}'
+vdd  vdd 0 DC 5
+vin0 in0 0 DC pwl 10n 0 20n 5 50n 5 60n 0
+vin1 in1 0 DC pwl 10n 0 20n 0 50n 0 60n 0
+vin2 in2 0 DC pwl 10n 0 20n 5 50n 5 60n 0
+vin3 in3 0 DC pwl 10n 0 20n 5 50n 5 60n 0
+vin4 in4 0 DC pwl 10n 0 20n 0 50n 0 60n 0
+vin5 in5 0 DC pwl 10n 0 20n 5 50n 5 60n 0
+vin6 in6 0 DC pwl 10n 0 20n 0 50n 0 60n 0
+vin7 in7 0 DC pwl 10n 0 20n 5 50n 5 60n 0
+.tran 0 100ns
+.include C:\Users\betul\OneDrive\Desktop\4-FALL\IC\C5_models.txt
+* Trailer cards described in this file:
+.include C:\Users\betul\OneDrive\Desktop\4-FALL\IC\C5_models.txt
+.END

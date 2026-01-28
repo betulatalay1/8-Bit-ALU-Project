@@ -1,0 +1,63 @@
+*** SPICE deck for cell MUX16_1{lay} from library MUX16_1
+*** Created on Paz Ara 21, 2025 20:41:58
+*** Last revised on Paz Ara 21, 2025 22:34:05
+*** Written on Paz Ara 21, 2025 22:34:18 by Electric VLSI Design System, version 9.08
+*** Layout tech: mocmos, foundry MOSIS
+*** UC SPICE *** , MIN_RESIST 4.0, MIN_CAPAC 0.1FF
+
+*** SUBCIRCUIT Inverter__Inv FROM CELL Inverter:Inv{lay}
+.SUBCKT Inverter__Inv gnd in out vdd
+Mnmos@0 gnd in out gnd N L=0.6U W=3U AS=6.75P AD=18P PS=10.5U PD=28.5U
+Mpmos@0 vdd in out vdd P L=0.6U W=3U AS=6.75P AD=20.25P PS=10.5U PD=29.1U
+.ENDS Inverter__Inv
+
+*** SUBCIRCUIT MUX2_1__MUX2_1 FROM CELL MUX2_1:MUX2_1{lay}
+.SUBCKT MUX2_1__MUX2_1 A B gnd out S vdd
+XInv@0 gnd S net@53 vdd Inverter__Inv
+Mnmos@0 A net@53 out gnd N L=0.6U W=3U AS=6.75P AD=6.75P PS=10.5U PD=10.5U
+Mnmos@3 B S out gnd N L=0.6U W=3U AS=6.75P AD=6.75P PS=10.5U PD=10.5U
+Mpmos@0 A S out vdd P L=0.6U W=3U AS=6.75P AD=6.75P PS=10.5U PD=10.5U
+Mpmos@2 B net@53 out vdd P L=0.6U W=3U AS=6.75P AD=6.75P PS=10.5U PD=10.5U
+.ENDS MUX2_1__MUX2_1
+
+*** SUBCIRCUIT MUX4_1__MUX4_1 FROM CELL MUX4_1:MUX4_1{lay}
+.SUBCKT MUX4_1__MUX4_1 gnd out S0 S1 vdd I0 I1 I2 I3
+XMUX2_1@0 I2 I3 gnd net@17 S0 vdd MUX2_1__MUX2_1
+XMUX2_1@1 I0 I1 gnd net@14 S0 vdd MUX2_1__MUX2_1
+XMUX2_1@2 net@14 net@17 gnd out S1 vdd MUX2_1__MUX2_1
+.ENDS MUX4_1__MUX4_1
+
+*** TOP LEVEL CELL: MUX16_1{lay}
+XMUX4_1@0 gnd net@134 S0 S1 vdd I0 I1 I2 I3 MUX4_1__MUX4_1
+XMUX4_1@1 gnd net@144 S0 S1 vdd I4 I5 I6 I7 MUX4_1__MUX4_1
+XMUX4_1@2 gnd net@147 S0 S1 vdd I8 I9 I10 I11 MUX4_1__MUX4_1
+XMUX4_1@3 gnd net@151 S0 S1 vdd I12 I13 I14 I15 MUX4_1__MUX4_1
+XMUX4_1@4 gnd out S2 S3 vdd net@134 net@144 net@147 net@151 MUX4_1__MUX4_1
+
+* Spice Code nodes in cell cell 'MUX16_1{lay}'
+vdd vdd 0 DC 5 
+vi0 I0 0 DC pwl 10n 0 20n 0 21n 5 60n 5 90n 5 91n 0 130n 0 131n 5 170n 5 
+vi1 I1 0 DC pwl 10n 0 11n 5 100n 5 101n 0 
+vi2 I2 0 DC pwl 10n 5 20n 5 21n 0 50n 0 51n 5 120n 5 121n 0
+vi3 I3 0 DC pwl 10n 0 50n 0 51n 5 60n 5 61n 0 100n 0 101n 5 150n 5 151n 0
+vi4 I4 0 DC pwl 10n 0 70n 0 71n 5 
+vi5 I5 0 DC pwl 10n 0 11n 5 100n 5 
+vi6 I6 0 DC pwl 10n 5 40n 5 41n 0 100n 0 200n 0
+vi7 I7 0 DC pwl 10n 5 50n 0 51n 5 160n 5 199n 5 200n 0
+vi8 I8 0 DC pwl 10n 5 50n 5 200n 5  
+vi9 I9 0 DC pwl 10n 0 11n 5 150n 5 151n 0 200n 0 
+vi10 I10 0 DC pwl 10n 5 100n 5 101n 0 180n 0 181n 5
+vi11 I11 0 DC pwl 10n 0 48n 0 49n 5 130n 5 131n 0 180n 0
+vi12 I12 0 DC pwl 10n 5 25n 5 26n 0 100n 0 150n 0  
+vi13 I13 0 DC pwl 10n 0 80n 0 81n 5 200n 5 
+vi14 I14 0 DC pwl 10n 5 100n 5 101n 0 200n 0
+vi15 I15 0 DC pwl 10n 5 150n 5 151n 0 200n 0
+vs0 S0 0 PWL(0n 0 12n 0 13n 5 25n 5 26n 0 39n 0 40n 5 52n 5 53n 0 65n 0 66n 5 78n 5 79n 0 91n 0 92n 5 104n 5 105n 0 117n 0 118n 5 130n 5 131n 0 143n 0 144n 5 156n 5 157n 0 169n 0 170n 5 182n 5 183n 0 195n 0 196n 5 200n 5)
+vs1 S1 0 DC pwl 0n 0 24n 0 25n 5 49n 5 50n 0 74n 0 75n 5 99n 5 100n 0 124n 0 125n 5 149n 5 150n 0 174n 0 175n 5 200n 5
+vs2 S2 0 DC pwl 0n 0 49n 0 50n 5 99n 5 100n 0 149n 0 150n 5 200n 5
+vs3 S3 0 DC pwl 0n 0 99n 0 100n 5 200n 5
+.tran 200n 
+.include C:\Users\betul\OneDrive\Desktop\4-FALL\IC\C5_models.txt
+* Trailer cards described in this file:
+.include C:\Users\betul\OneDrive\Desktop\4-FALL\IC\C5_models.txt
+.END

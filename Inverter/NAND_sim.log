@@ -1,0 +1,9 @@
+Circuit: *** SPICE deck for cell NAND_sim{lay} from library NandGate
+
+Warning: Multiple definitions of model "p" Type: BSIM3
+Warning: Multiple definitions of model "n" Type: BSIM3
+Ignoring BSIM parameter XL
+Ignoring BSIM parameter XW
+Ignoring BSIM parameter XL
+Ignoring BSIM parameter XW
+Fatal Error: Previous analysis already found: .tran 200n

@@ -1,0 +1,30 @@
+*** SPICE deck for cell MUX2_1{lay} from library MUX2_1
+*** Created on Çar Ara 17, 2025 21:50:27
+*** Last revised on Çar Ara 17, 2025 22:44:42
+*** Written on Çar Ara 17, 2025 22:45:29 by Electric VLSI Design System, version 9.08
+*** Layout tech: mocmos, foundry MOSIS
+*** UC SPICE *** , MIN_RESIST 4.0, MIN_CAPAC 0.1FF
+
+*** SUBCIRCUIT Inverter__Inv FROM CELL Inv{lay}
+.SUBCKT Inverter__Inv gnd in out vdd
+Mnmos@0 gnd in out gnd N L=0.6U W=3U AS=6.75P AD=18P PS=10.5U PD=28.5U
+Mpmos@0 vdd in out vdd P L=0.6U W=3U AS=6.75P AD=20.25P PS=10.5U PD=29.1U
+.ENDS Inverter__Inv
+
+*** TOP LEVEL CELL: MUX2_1:MUX2_1{lay}
+XInv@0 gnd S net@53 vdd Inverter__Inv
+Mnmos@0 A net@53 out gnd N L=0.6U W=3U AS=6.75P AD=6.75P PS=10.5U PD=10.5U
+Mnmos@3 B S out gnd N L=0.6U W=3U AS=6.75P AD=6.75P PS=10.5U PD=10.5U
+Mpmos@0 A S out vdd P L=0.6U W=3U AS=6.75P AD=6.75P PS=10.5U PD=10.5U
+Mpmos@2 B net@53 out vdd P L=0.6U W=3U AS=6.75P AD=6.75P PS=10.5U PD=10.5U
+
+* Spice Code nodes in cell cell 'MUX2_1:MUX2_1{lay}'
+vdd vdd 0 DC 5 
+va A 0 DC pwl 10n 0 20n 5 50n 5 60n 0 90n 0 100n 5 130n 5 140n 0 170n 0 180n 5
+vb B 0 DC pwl 10n 0 20n 5 100n 5 110n 0 
+vs S 0 DC pwl 0n 0 99n 0 101n 5 200n 5
+.tran 200n 
+.include C:\Users\betul\OneDrive\Desktop\4-FALL\IC\C5_models.txt
+* Trailer cards described in this file:
+.include C:\Users\betul\OneDrive\Desktop\4-FALL\IC\C5_models.txt
+.END

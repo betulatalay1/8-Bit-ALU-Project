@@ -1,0 +1,37 @@
+Circuit: *** SPICE deck for cell 8Bit_Adder{lay} from library 8Bit_Adder
+
+Warning: Multiple definitions of model "p" Type: BSIM3
+Warning: Multiple definitions of model "n" Type: BSIM3
+Ignoring BSIM parameter XL
+Ignoring BSIM parameter XW
+Ignoring BSIM parameter XL
+Ignoring BSIM parameter XW
+Vb6: Removing PWL point (2e-008,0)
+Va6: Removing PWL point (2e-008,0)
+Vb5: Removing PWL point (2e-008,0)
+Va3: Removing PWL point (2e-008,0)
+Va2: Removing PWL point (2e-008,0)
+Vb1: Removing PWL point (2e-008,0)
+WARNING: Node CIN is floating.
+
+Direct Newton iteration for .op point succeeded.
+
+Date: Tue Dec 23 21:27:14 2025
+Total elapsed time: 0.727 seconds.
+
+tnom = 27
+temp = 27
+method = modified trap
+totiter = 3355
+traniter = 3320
+tranpoints = 1397
+accept = 1286
+rejected = 111
+matrix size = 203
+fillins = 142
+solver = Normal
+Thread vector: 865.1/118.2[12] 82.4/16.5[12] 21.7/6.9[12] 0.9/1.5[1]  2592/500
+Matrix Compiler1:    1831 opcodes  7.3/[3.9]/4.2
+Matrix Compiler2: 28,8 KB object code size  3.7/3.9/[1.8]
+
+

@@ -1,0 +1,38 @@
+*** SPICE deck for cell NAND_sim{lay} from library NandGate
+*** Created on Cum Ara 12, 2025 19:19:46
+*** Last revised on Cum Ara 12, 2025 19:22:53
+*** Written on Cum Ara 12, 2025 19:22:56 by Electric VLSI Design System, version 9.08
+*** Layout tech: mocmos, foundry MOSIS
+*** UC SPICE *** , MIN_RESIST 4.0, MIN_CAPAC 0.1FF
+
+*** SUBCIRCUIT NandGate__NAND FROM CELL NAND{lay}
+.SUBCKT NandGate__NAND A AB B gnd vdd
+Mnmos@1 AB A net@6 gnd N L=0.6U W=3U AS=2.7P AD=5.25P PS=4.8U PD=7.5U
+Mnmos@2 net@6 B gnd gnd N L=0.6U W=3U AS=20.25P AD=2.7P PS=31.5U PD=4.8U
+Mpmos@0 vdd A AB vdd P L=0.6U W=3U AS=5.25P AD=13.5P PS=7.5U PD=21U
+Mpmos@1 AB B vdd vdd P L=0.6U W=3U AS=13.5P AD=5.25P PS=21U PD=7.5U
+
+* Spice Code nodes in cell cell 'NAND{lay}'
+vdd vdd 0 DC 5
+va A 0 DC pwl 10n 0 20n 5 50n 5 60n 0 90n 0 100n 5 130n 5 140n 0 170n 0 180n 5
+vb B 0 DC pwl 10n 0 20n 5 100n 5 110n 0 
+.measure tran tf trig v(AB) val=4.5 fall=1 td=4ns targ v(AB) val=0.5 fall=1 
+.measure tran tr trig v(AB) val=0.5 rise=1 td=4ns targ v(AB) val=4.5 rise=1 
+.tran 200n 
+.include C:\Users\betul\OneDrive\Desktop\4-FALL\IC\C5_models.txt
+.ENDS NandGate__NAND
+
+*** TOP LEVEL CELL: NAND_sim{lay}
+XNAND@0 A AB B gnd vdd NandGate__NAND
+
+* Spice Code nodes in cell cell 'NAND_sim{lay}'
+vdd vdd 0 DC 5
+va A 0 DC pwl 10n 0 20n 5 50n 5 60n 0 90n 0 100n 5 130n 5 140n 0 170n 0 180n 5
+vb B 0 DC pwl 10n 0 20n 5 100n 5 110n 0 
+.measure tran tf trig v(AB) val=4.5 fall=1 td=4ns targ v(AB) val=0.5 fall=1 
+.measure tran tr trig v(AB) val=0.5 rise=1 td=4ns targ v(AB) val=4.5 rise=1 
+.tran 200n 
+.include C:\Users\betul\OneDrive\Desktop\4-FALL\IC\C5_models.txt
+* Trailer cards described in this file:
+.include C:\Users\betul\OneDrive\Desktop\4-FALL\IC\C5_models.txt
+.END

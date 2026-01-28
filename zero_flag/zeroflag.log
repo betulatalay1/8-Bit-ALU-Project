@@ -1,0 +1,36 @@
+Circuit: *** SPICE deck for cell zeroflag{lay} from library zeroflag
+
+Warning: Multiple definitions of model "p" Type: BSIM3
+Warning: Multiple definitions of model "n" Type: BSIM3
+Ignoring BSIM parameter XL
+Ignoring BSIM parameter XW
+Ignoring BSIM parameter XL
+Ignoring BSIM parameter XW
+Va7: Removing PWL point (2e-008,0)
+Va6: Removing PWL point (2e-008,0)
+Va5: Removing PWL point (2e-008,0)
+Va4: Removing PWL point (2e-008,0)
+Va3: Removing PWL point (2e-008,0)
+Va2: Removing PWL point (2e-008,0)
+Va1: Removing PWL point (2e-008,0)
+Direct Newton iteration for .op point succeeded.
+
+Date: Mon Dec 29 21:22:34 2025
+Total elapsed time: 0.332 seconds.
+
+tnom = 27
+temp = 27
+method = modified trap
+totiter = 2468
+traniter = 2453
+tranpoints = 1141
+accept = 1106
+rejected = 35
+matrix size = 40
+fillins = 22
+solver = Normal
+Thread vector: 38.7/15.9[4] 7.6/2.6[4] 2.0/1.0[4] 0.2/0.9[1]  2592/500
+Matrix Compiler1: 3,56 KB object code size  0.6/0.3/[0.2]
+Matrix Compiler2: 4,50 KB object code size  0.3/0.3/[0.3]
+
+

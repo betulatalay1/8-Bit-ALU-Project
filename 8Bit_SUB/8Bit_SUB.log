@@ -1,0 +1,35 @@
+Circuit: *** SPICE deck for cell 8Bit_SUB{lay} from library 8Bit_SUB
+
+Warning: Multiple definitions of model "p" Type: BSIM3
+Warning: Multiple definitions of model "n" Type: BSIM3
+Ignoring BSIM parameter XL
+Ignoring BSIM parameter XW
+Ignoring BSIM parameter XL
+Ignoring BSIM parameter XW
+Vb6: Removing PWL point (2e-008,0)
+Va6: Removing PWL point (2e-008,0)
+Vb5: Removing PWL point (2e-008,0)
+Va3: Removing PWL point (2e-008,0)
+Va2: Removing PWL point (2e-008,0)
+Vb1: Removing PWL point (2e-008,0)
+Direct Newton iteration for .op point succeeded.
+
+Date: Sat Dec 27 22:25:00 2025
+Total elapsed time: 0.815 seconds.
+
+tnom = 27
+temp = 27
+method = modified trap
+totiter = 3390
+traniter = 3358
+tranpoints = 1423
+accept = 1299
+rejected = 124
+matrix size = 210
+fillins = 264
+solver = Normal
+Thread vector: 923.7/154.9[12] 86.0/18.1[12] 22.5/7.0[10] 1.2/1.2[1]  2592/500
+Matrix Compiler1:    2319 opcodes  9.8/[4.6]/5.7
+Matrix Compiler2: 31,4 KB object code size  4.0/4.3/[3.3]
+
+

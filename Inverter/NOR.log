@@ -1,0 +1,32 @@
+Circuit: *** SPICE deck for cell NOR{lay} from library NorGate
+
+Warning: Multiple definitions of model "p" Type: BSIM3
+Warning: Multiple definitions of model "n" Type: BSIM3
+Ignoring BSIM parameter XL
+Ignoring BSIM parameter XW
+Ignoring BSIM parameter XL
+Ignoring BSIM parameter XW
+Direct Newton iteration for .op point succeeded.
+
+tf=1.06157e-009 FROM 1.22137e-008 TO 1.32753e-008
+tr=2.01992e-009 FROM 1.35624e-007 TO 1.37644e-007
+
+
+Date: Fri Dec 12 22:16:24 2025
+Total elapsed time: 0.140 seconds.
+
+tnom = 27
+temp = 27
+method = modified trap
+totiter = 2350
+traniter = 2342
+tranpoints = 1086
+accept = 1079
+rejected = 7
+matrix size = 8
+fillins = 0
+solver = Normal
+Matrix Compiler1: 282 bayt object code size  0.1/0.1/[0.0]
+Matrix Compiler2: 682 bayt object code size  0.1/0.1/[0.1]
+
+

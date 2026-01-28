@@ -1,0 +1,28 @@
+Circuit: *** SPICE deck for cell 8Bit_Inv{lay} from library 8Bit_Inv
+
+Warning: Multiple definitions of model "p" Type: BSIM3
+Warning: Multiple definitions of model "n" Type: BSIM3
+Ignoring BSIM parameter XL
+Ignoring BSIM parameter XW
+Ignoring BSIM parameter XL
+Ignoring BSIM parameter XW
+Direct Newton iteration for .op point succeeded.
+
+Date: Tue Dec 23 18:17:29 2025
+Total elapsed time: 0.235 seconds.
+
+tnom = 27
+temp = 27
+method = modified trap
+totiter = 2341
+traniter = 2332
+tranpoints = 1100
+accept = 1085
+rejected = 15
+matrix size = 26
+fillins = 0
+solver = Normal
+Matrix Compiler1: 1,34 KB object code size  0.4/0.3/[0.2]
+Matrix Compiler2: 1,77 KB object code size  0.2/0.3/[0.2]
+
+

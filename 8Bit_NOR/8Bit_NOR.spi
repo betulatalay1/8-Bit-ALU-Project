@@ -1,0 +1,48 @@
+*** SPICE deck for cell 8Bit_NOR{lay} from library 8Bit_NOR
+*** Created on Pzt Ara 22, 2025 22:31:01
+*** Last revised on Pzt Ara 22, 2025 22:47:40
+*** Written on Sal Ara 23, 2025 21:29:06 by Electric VLSI Design System, version 9.08
+*** Layout tech: mocmos, foundry MOSIS
+*** UC SPICE *** , MIN_RESIST 4.0, MIN_CAPAC 0.1FF
+
+*** SUBCIRCUIT NorGate_for8NOR__NOR FROM CELL NorGate_for8NOR:NOR{lay}
+.SUBCKT NorGate_for8NOR__NOR A AorB B gnd vdd
+Mnmos@0 gnd A AorB gnd N L=0.6U W=3U AS=5.25P AD=13.5P PS=7.5U PD=21U
+Mnmos@1 AorB B gnd gnd N L=0.6U W=3U AS=13.5P AD=5.25P PS=21U PD=7.5U
+Mpmos@0 vdd A net@6 vdd P L=0.6U W=3U AS=2.25P AD=22.95P PS=4.5U PD=32.1U
+Mpmos@1 net@6 B AorB vdd P L=0.6U W=3U AS=5.25P AD=2.25P PS=7.5U PD=4.5U
+.ENDS NorGate_for8NOR__NOR
+
+*** TOP LEVEL CELL: 8Bit_NOR{lay}
+XNOR@0 A0 AorB0 B0 gnd vdd NorGate_for8NOR__NOR
+XNOR@1 A1 AorB1 B1 gnd vdd NorGate_for8NOR__NOR
+XNOR@2 A2 AorB2 B2 gnd vdd NorGate_for8NOR__NOR
+XNOR@3 A3 AorB3 B3 gnd vdd NorGate_for8NOR__NOR
+XNOR@4 A4 AorB4 B4 gnd vdd NorGate_for8NOR__NOR
+XNOR@5 A5 AorB5 B5 gnd vdd NorGate_for8NOR__NOR
+XNOR@6 A6 AorB6 B6 gnd vdd NorGate_for8NOR__NOR
+XNOR@7 A7 AorB7 B7 gnd vdd NorGate_for8NOR__NOR
+
+* Spice Code nodes in cell cell '8Bit_NOR{lay}'
+vdd vdd 0 DC 5
+va0 A0 0 DC pwl 10n 0 20n 5 50n 5 60n 0 90n 0 100n 5 130n 5 140n 0 170n 0 180n 5
+vb0 B0 0 DC pwl 10n 0 20n 5 100n 5 110n 0
+va1 A1 0 DC pwl 10n 0 20n 5 50n 5 60n 0 90n 0 100n 5 130n 5 140n 0 170n 0 180n 5
+vb1 B1 0 DC pwl 10n 0 20n 5 100n 5 110n 0
+va2 A2 0 DC pwl 10n 0 20n 5 50n 5 60n 0 90n 0 100n 5 130n 5 140n 0 170n 0 180n 5
+vb2 B2 0 DC pwl 10n 0 20n 5 100n 5 110n 0
+va3 A3 0 DC pwl 10n 0 20n 5 50n 5 60n 0 90n 0 100n 5 130n 5 140n 0 170n 0 180n 5
+vb3 B3 0 DC pwl 10n 0 20n 5 100n 5 110n 0
+va4 A4 0 DC pwl 10n 0 20n 5 50n 5 60n 0 90n 0 100n 5 130n 5 140n 0 170n 0 180n 5
+vb4 B4 0 DC pwl 10n 0 20n 5 100n 5 110n 0
+va5 A5 0 DC pwl 10n 0 20n 5 50n 5 60n 0 90n 0 100n 5 130n 5 140n 0 170n 0 180n 5
+vb5 B5 0 DC pwl 10n 0 20n 5 100n 5 110n 0
+va6 A6 0 DC pwl 10n 0 20n 5 50n 5 60n 0 90n 0 100n 5 130n 5 140n 0 170n 0 180n 5
+vb6 B6 0 DC pwl 10n 0 20n 5 100n 5 110n 0
+va7 A7 0 DC pwl 10n 0 20n 5 50n 5 60n 0 90n 0 100n 5 130n 5 140n 0 170n 0 180n 5
+vb7 B7 0 DC pwl 10n 0 20n 5 100n 5 110n 0
+.tran 200n
+.include C:\Users\betul\OneDrive\Desktop\4-FALL\IC\C5_models.txt
+* Trailer cards described in this file:
+.include C:\Users\betul\OneDrive\Desktop\4-FALL\IC\C5_models.txt
+.END

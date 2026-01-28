@@ -1,0 +1,52 @@
+*** SPICE deck for cell zeroflag{lay} from library zeroflag
+*** Created on Paz Ara 28, 2025 23:01:32
+*** Last revised on Pzt Ara 29, 2025 21:22:30
+*** Written on Pzt Ara 29, 2025 21:22:33 by Electric VLSI Design System, version 9.08
+*** Layout tech: mocmos, foundry MOSIS
+*** UC SPICE *** , MIN_RESIST 4.0, MIN_CAPAC 0.1FF
+
+*** SUBCIRCUIT Inverter__Inv FROM CELL Inverter:Inv{lay}
+.SUBCKT Inverter__Inv gnd in out vdd
+Mnmos@0 gnd in out gnd N L=0.6U W=3U AS=6.75P AD=18P PS=10.5U PD=28.5U
+Mpmos@0 vdd in out vdd P L=0.6U W=3U AS=6.75P AD=20.25P PS=10.5U PD=29.1U
+.ENDS Inverter__Inv
+
+*** SUBCIRCUIT NorGate__NOR FROM CELL NorGate:NOR{lay}
+.SUBCKT NorGate__NOR A AorB B gnd vdd
+Mnmos@0 gnd A AorB gnd N L=0.6U W=3U AS=5.25P AD=13.5P PS=7.5U PD=21U
+Mnmos@1 AorB B gnd gnd N L=0.6U W=3U AS=13.5P AD=5.25P PS=21U PD=7.5U
+Mpmos@0 vdd A net@6 vdd P L=0.6U W=3U AS=2.25P AD=22.95P PS=4.5U PD=32.1U
+Mpmos@1 net@6 B AorB vdd P L=0.6U W=3U AS=5.25P AD=2.25P PS=7.5U PD=4.5U
+.ENDS NorGate__NOR
+
+*** SUBCIRCUIT OrGate__or FROM CELL OrGate:or{lay}
+.SUBCKT OrGate__or A B gnd out vdd
+XInv@0 gnd net@4 out vdd Inverter__Inv
+XNOR@0 A net@4 B gnd vdd NorGate__NOR
+.ENDS OrGate__or
+
+*** TOP LEVEL CELL: zeroflag{lay}
+XInv@0 gnd net@73 out vdd Inverter__Inv
+Xor@0 A0 A1 gnd net@60 vdd OrGate__or
+Xor@1 A2 A3 gnd net@44 vdd OrGate__or
+Xor@2 A4 A5 gnd net@46 vdd OrGate__or
+Xor@3 A6 A7 gnd net@64 vdd OrGate__or
+Xor@4 net@60 net@44 gnd net@67 vdd OrGate__or
+Xor@5 net@46 net@64 gnd net@70 vdd OrGate__or
+Xor@6 net@67 net@70 gnd net@73 vdd OrGate__or
+
+* Spice Code nodes in cell cell 'zeroflag{lay}'
+vdd vdd 0 DC 5
+va0 a0 0 DC pwl 10n 0 20n 5 50n 5 60n 0
+va1 a1 0 DC pwl 10n 0 20n 0 50n 0 60n 0
+va2 a2 0 DC pwl 10n 0 20n 0 50n 0 60n 0
+va3 a3 0 DC pwl 10n 0 20n 0 50n 0 60n 0
+va4 a4 0 DC pwl 10n 0 20n 0 50n 0 60n 0
+va5 a5 0 DC pwl 10n 0 20n 0 50n 0 60n 0
+va6 a6 0 DC pwl 10n 0 20n 0 50n 0 60n 0
+va7 a7 0 DC pwl 10n 0 20n 0 50n 0 60n 0
+.tran 0 100ns
+.include C:\Users\omery\Desktop\C5_models.txt
+* Trailer cards described in this file:
+.include C:\Users\omery\Desktop\C5_models.txt
+.END

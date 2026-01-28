@@ -1,0 +1,40 @@
+*** SPICE deck for cell MUX4_1{lay} from library MUX4_1
+*** Created on Cmt Ara 20, 2025 18:17:32
+*** Last revised on Cmt Ara 20, 2025 18:45:04
+*** Written on Cmt Ara 20, 2025 18:45:11 by Electric VLSI Design System, version 9.08
+*** Layout tech: mocmos, foundry MOSIS
+*** UC SPICE *** , MIN_RESIST 4.0, MIN_CAPAC 0.1FF
+
+*** SUBCIRCUIT Inverter__Inv FROM CELL Inverter:Inv{lay}
+.SUBCKT Inverter__Inv gnd in out vdd
+Mnmos@0 gnd in out gnd N L=0.6U W=3U AS=6.75P AD=18P PS=10.5U PD=28.5U
+Mpmos@0 vdd in out vdd P L=0.6U W=3U AS=6.75P AD=20.25P PS=10.5U PD=29.1U
+.ENDS Inverter__Inv
+
+*** SUBCIRCUIT MUX2_1__MUX2_1 FROM CELL MUX2_1{lay}
+.SUBCKT MUX2_1__MUX2_1 A B gnd out S vdd
+XInv@0 gnd S net@53 vdd Inverter__Inv
+Mnmos@0 A net@53 out gnd N L=0.6U W=3U AS=6.75P AD=6.75P PS=10.5U PD=10.5U
+Mnmos@3 B S out gnd N L=0.6U W=3U AS=6.75P AD=6.75P PS=10.5U PD=10.5U
+Mpmos@0 A S out vdd P L=0.6U W=3U AS=6.75P AD=6.75P PS=10.5U PD=10.5U
+Mpmos@2 B net@53 out vdd P L=0.6U W=3U AS=6.75P AD=6.75P PS=10.5U PD=10.5U
+.ENDS MUX2_1__MUX2_1
+
+*** TOP LEVEL CELL: MUX4_1:MUX4_1{lay}
+XMUX2_1@0 I2 I3 gnd net@17 S0 vdd MUX2_1__MUX2_1
+XMUX2_1@1 I0 I1 gnd net@14 S0 vdd MUX2_1__MUX2_1
+XMUX2_1@2 net@14 net@17 gnd out S1 vdd MUX2_1__MUX2_1
+
+* Spice Code nodes in cell cell 'MUX4_1:MUX4_1{lay}'
+vdd vdd 0 DC 5 
+vi0 I0 0 DC pwl 10n 0 20n 0 21n 5 60n 5 90n 5 91n 0 130n 0 131n 5 170n 5 
+vi1 I1 0 DC pwl 10n 0 11n 5 100n 5 101n 0 
+vi2 I2 0 DC pwl 10n 5 20n 5 21n 0 50n 0 51n 5 120n 5 121n 0
+vi3 I3 0 DC pwl 10n 0 50n 0 51n 5 60n 5 61n 0 100n 0 101n 5 150n 5 151n 0
+vs0 S0 0 DC pwl 0n 0 49n 0 50n 5 99n 5 100n 0 149n 0 150n 5 200n 5
+vs1 S1 0 DC pwl 0n 0 99n 0 100n 5 199n 5 200n 0 300n 0
+.tran 200n 
+.include C:\Users\betul\OneDrive\Desktop\4-FALL\IC\C5_models.txt
+* Trailer cards described in this file:
+.include C:\Users\betul\OneDrive\Desktop\4-FALL\IC\C5_models.txt
+.END

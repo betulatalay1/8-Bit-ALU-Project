@@ -1,0 +1,27 @@
+*** SPICE deck for cell Inv_sim{lay} from library Inverter
+*** Created on Cum Ara 12, 2025 17:10:44
+*** Last revised on Cum Ara 12, 2025 17:13:03
+*** Written on Cum Ara 12, 2025 17:13:08 by Electric VLSI Design System, version 9.08
+*** Layout tech: mocmos, foundry MOSIS
+*** UC SPICE *** , MIN_RESIST 4.0, MIN_CAPAC 0.1FF
+
+*** SUBCIRCUIT Inverter__Inv FROM CELL Inv{lay}
+.SUBCKT Inverter__Inv gnd in out vdd
+Mnmos@0 gnd in out gnd N L=0.6U W=3U AS=6.75P AD=18P PS=10.5U PD=28.5U
+Mpmos@0 vdd in out vdd P L=0.6U W=3U AS=6.75P AD=20.25P PS=10.5U PD=29.1U
+.ENDS Inverter__Inv
+
+*** TOP LEVEL CELL: Inv_sim{lay}
+XInv@0 gnd in out vdd Inverter__Inv
+
+* Spice Code nodes in cell cell 'Inv_sim{lay}'
+vdd vdd 0 DC 5
+vin in 0 DC pwl 10n 0 20n 5 50n 5 60n 0
+cload out 0 250fF
+.measure tran tf trig v(out) val=4.5 fall=1 td=8ns targ v(out) val=0.5 fall=1
+.measure tran tr trig v(out) val=0.5 rise=1 td=50ns targ v(out) val=4.5 rise=1
+.tran 0 100ns
+.include C:\Users\betul\OneDrive\Desktop\4-FALL\IC\C5_models.txt
+* Trailer cards described in this file:
+.include C:\Users\betul\OneDrive\Desktop\4-FALL\IC\C5_models.txt
+.END

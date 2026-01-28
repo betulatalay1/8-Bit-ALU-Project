@@ -1,0 +1,73 @@
+*** SPICE deck for cell 8Bit_COMP{lay} from library 8Bit_COMP
+*** Created on Çar Ara 24, 2025 19:55:21
+*** Last revised on Çar Ara 24, 2025 20:20:07
+*** Written on Çar Ara 24, 2025 20:20:10 by Electric VLSI Design System, version 9.08
+*** Layout tech: mocmos, foundry MOSIS
+*** UC SPICE *** , MIN_RESIST 4.0, MIN_CAPAC 0.1FF
+
+*** SUBCIRCUIT Inverter_for1Comp__Inv FROM CELL Inverter_for1Comp:Inv{lay}
+.SUBCKT Inverter_for1Comp__Inv gnd in out vdd
+Mnmos@0 gnd in out gnd N L=0.6U W=3U AS=6.75P AD=18P PS=10.5U PD=28.5U
+Mpmos@0 vdd in out vdd P L=0.6U W=3U AS=6.75P AD=20.25P PS=10.5U PD=29.1U
+.ENDS Inverter_for1Comp__Inv
+
+*** SUBCIRCUIT NandGate_for1Comp__NAND FROM CELL NandGate_for1Comp:NAND{lay}
+.SUBCKT NandGate_for1Comp__NAND A AB B gnd vdd
+Mnmos@1 AB A net@6 gnd N L=0.6U W=3U AS=2.7P AD=5.25P PS=4.8U PD=7.5U
+Mnmos@2 net@6 B gnd gnd N L=0.6U W=3U AS=20.25P AD=2.7P PS=31.5U PD=4.8U
+Mpmos@0 vdd A AB vdd P L=0.6U W=3U AS=5.25P AD=13.5P PS=7.5U PD=21U
+Mpmos@1 AB B vdd vdd P L=0.6U W=3U AS=13.5P AD=5.25P PS=21U PD=7.5U
+.ENDS NandGate_for1Comp__NAND
+
+*** SUBCIRCUIT NorGate_for1Comp__NOR FROM CELL NorGate_for1Comp:NOR{lay}
+.SUBCKT NorGate_for1Comp__NOR A AorB B gnd vdd
+Mnmos@0 gnd A AorB gnd N L=0.6U W=3U AS=5.25P AD=13.5P PS=7.5U PD=21U
+Mnmos@1 AorB B gnd gnd N L=0.6U W=3U AS=13.5P AD=5.25P PS=21U PD=7.5U
+Mpmos@0 vdd A net@6 vdd P L=0.6U W=3U AS=2.25P AD=22.95P PS=4.5U PD=32.1U
+Mpmos@1 net@6 B AorB vdd P L=0.6U W=3U AS=5.25P AD=2.25P PS=7.5U PD=4.5U
+.ENDS NorGate_for1Comp__NOR
+
+*** SUBCIRCUIT _1Bit_COMP__1Bit_COMP FROM CELL 1Bit_COMP{lay}
+.SUBCKT _1Bit_COMP__1Bit_COMP A AbigB AeqB AlessB B gnd vdd
+XInv@0 gnd A net@0 vdd Inverter_for1Comp__Inv
+XInv@1 gnd B net@59 vdd Inverter_for1Comp__Inv
+XInv@2 gnd net@10 AlessB vdd Inverter_for1Comp__Inv
+XInv@3 gnd net@12 AbigB vdd Inverter_for1Comp__Inv
+XNAND@0 net@0 net@10 B gnd vdd NandGate_for1Comp__NAND
+XNAND@1 A net@12 net@59 gnd vdd NandGate_for1Comp__NAND
+XNOR@0 AlessB AeqB AbigB gnd vdd NorGate_for1Comp__NOR
+.ENDS _1Bit_COMP__1Bit_COMP
+
+*** TOP LEVEL CELL: 8Bit_COMP:8Bit_COMP{lay}
+X_1Bit_COM@0 A0 AbigB0 AeqB0 AlessB0 B0 gnd vdd _1Bit_COMP__1Bit_COMP
+X_1Bit_COM@1 A1 AbigB1 AeqB1 AlessB1 B1 gnd vdd _1Bit_COMP__1Bit_COMP
+X_1Bit_COM@2 A2 AbigB2 AeqB2 AlessB2 B2 gnd vdd _1Bit_COMP__1Bit_COMP
+X_1Bit_COM@3 A3 AbigB3 AeqB3 AlessB3 B3 gnd vdd _1Bit_COMP__1Bit_COMP
+X_1Bit_COM@4 A4 AbigB4 AeqB4 AlessB4 B4 gnd vdd _1Bit_COMP__1Bit_COMP
+X_1Bit_COM@5 A5 AbigB5 AeqB5 AlessB5 B5 gnd vdd _1Bit_COMP__1Bit_COMP
+X_1Bit_COM@6 A6 AbigB6 AeqB6 AlessB6 B6 gnd vdd _1Bit_COMP__1Bit_COMP
+X_1Bit_COM@7 A7 AbigB7 AeqB7 AlessB7 B7 gnd vdd _1Bit_COMP__1Bit_COMP
+
+* Spice Code nodes in cell cell '8Bit_COMP:8Bit_COMP{lay}'
+vdd vdd 0 DC 5 
+va0 A0 0 DC pwl 10n 0 20n 5 50n 5 60n 0 90n 0 100n 5 130n 5 140n 0 170n 0 180n 5
+vb0 B0 0 DC pwl 10n 0 20n 5 100n 5 110n 0 
+va1 A1 0 DC pwl 10n 0 20n 5 50n 5 60n 0 90n 0 100n 5 130n 5 140n 0 170n 0 180n 5
+vb1 B1 0 DC pwl 10n 0 20n 5 100n 5 110n 0 
+va2 A2 0 DC pwl 10n 0 20n 5 50n 5 60n 0 90n 0 100n 5 130n 5 140n 0 170n 0 180n 5
+vb2 B2 0 DC pwl 10n 0 20n 5 100n 5 110n 0 
+va3 A3 0 DC pwl 10n 0 20n 5 50n 5 60n 0 90n 0 100n 5 130n 5 140n 0 170n 0 180n 5
+vb3 B3 0 DC pwl 10n 0 20n 5 100n 5 110n 0 
+va4 A4 0 DC pwl 10n 0 20n 5 50n 5 60n 0 90n 0 100n 5 130n 5 140n 0 170n 0 180n 5
+vb4 B4 0 DC pwl 10n 0 20n 5 100n 5 110n 0 
+va5 A5 0 DC pwl 10n 0 20n 5 50n 5 60n 0 90n 0 100n 5 130n 5 140n 0 170n 0 180n 5
+vb5 B5 0 DC pwl 10n 0 20n 5 100n 5 110n 0 
+va6 A6 0 DC pwl 10n 0 20n 5 50n 5 60n 0 90n 0 100n 5 130n 5 140n 0 170n 0 180n 5
+vb6 B6 0 DC pwl 10n 0 20n 5 100n 5 110n 0 
+va7 A7 0 DC pwl 10n 0 20n 5 50n 5 60n 0 90n 0 100n 5 130n 5 140n 0 170n 0 180n 5
+vb7 B7 0 DC pwl 10n 0 20n 5 100n 5 110n 0 
+.tran 200n 
+.include C:\Users\betul\OneDrive\Desktop\4-FALL\IC\C5_models.txt
+* Trailer cards described in this file:
+.include C:\Users\betul\OneDrive\Desktop\4-FALL\IC\C5_models.txt
+.END

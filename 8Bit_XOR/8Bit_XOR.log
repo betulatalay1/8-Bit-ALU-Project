@@ -1,0 +1,29 @@
+Circuit: *** SPICE deck for cell 8Bit_XOR{lay} from library 8Bit_XOR
+
+Warning: Multiple definitions of model "p" Type: BSIM3
+Warning: Multiple definitions of model "n" Type: BSIM3
+Ignoring BSIM parameter XL
+Ignoring BSIM parameter XW
+Ignoring BSIM parameter XL
+Ignoring BSIM parameter XW
+Direct Newton iteration for .op point succeeded.
+
+Date: Tue Dec 23 22:08:41 2025
+Total elapsed time: 0.266 seconds.
+
+tnom = 27
+temp = 27
+method = modified trap
+totiter = 2562
+traniter = 2551
+tranpoints = 1131
+accept = 1102
+rejected = 29
+matrix size = 82
+fillins = 0
+solver = Normal
+Thread vector: 188.1/39.5[9] 19.6/3.9[9] 5.3/1.9[9] 0.5/0.8[1]  2592/500
+Matrix Compiler1:     407 opcodes  1.6/[0.8]/0.9
+Matrix Compiler2: 9,53 KB object code size  0.9/1.1/[0.8]
+
+

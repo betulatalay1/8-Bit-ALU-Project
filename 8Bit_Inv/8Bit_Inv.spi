@@ -1,0 +1,38 @@
+*** SPICE deck for cell 8Bit_Inv{lay} from library 8Bit_Inv
+*** Created on Sal Ara 23, 2025 13:34:03
+*** Last revised on Sal Ara 23, 2025 18:17:25
+*** Written on Sal Ara 23, 2025 18:17:28 by Electric VLSI Design System, version 9.08
+*** Layout tech: mocmos, foundry MOSIS
+*** UC SPICE *** , MIN_RESIST 4.0, MIN_CAPAC 0.1FF
+
+*** SUBCIRCUIT Inverter__Inv FROM CELL Inverter:Inv{lay}
+.SUBCKT Inverter__Inv gnd in out vdd
+Mnmos@0 gnd in out gnd N L=0.6U W=3U AS=6.75P AD=18P PS=10.5U PD=28.5U
+Mpmos@0 vdd in out vdd P L=0.6U W=3U AS=6.75P AD=20.25P PS=10.5U PD=29.1U
+.ENDS Inverter__Inv
+
+*** TOP LEVEL CELL: 8Bit_Inv{lay}
+XInv@0 gnd A0 A0not vdd Inverter__Inv
+XInv@1 gnd A1 A1not vdd Inverter__Inv
+XInv@2 gnd A2 A2not vdd Inverter__Inv
+XInv@3 gnd A3 A3not vdd Inverter__Inv
+XInv@4 gnd A4 A4not vdd Inverter__Inv
+XInv@5 gnd A5 A5not vdd Inverter__Inv
+XInv@6 gnd A6 A6not vdd Inverter__Inv
+XInv@7 gnd A7 A7not vdd Inverter__Inv
+
+* Spice Code nodes in cell cell '8Bit_Inv{lay}'
+vdd vdd 0 DC 5
+va0 A0 0 DC pwl 10n 0 20n 5 50n 5 60n 0 90n 0 100n 5 130n 5 140n 0 170n 0 180n 5
+va1 A1 0 DC pwl 10n 0 20n 5 50n 5 60n 0 90n 0 100n 5 130n 5 140n 0 170n 0 180n 5
+va2 A2 0 DC pwl 10n 0 20n 5 50n 5 60n 0 90n 0 100n 5 130n 5 140n 0 170n 0 180n 5
+va3 A3 0 DC pwl 10n 0 20n 5 50n 5 60n 0 90n 0 100n 5 130n 5 140n 0 170n 0 180n 5
+va4 A4 0 DC pwl 10n 0 20n 5 50n 5 60n 0 90n 0 100n 5 130n 5 140n 0 170n 0 180n 5
+va5 A5 0 DC pwl 10n 0 20n 5 50n 5 60n 0 90n 0 100n 5 130n 5 140n 0 170n 0 180n 5
+va6 A6 0 DC pwl 10n 0 20n 5 50n 5 60n 0 90n 0 100n 5 130n 5 140n 0 170n 0 180n 5
+va7 A7 0 DC pwl 10n 0 20n 5 50n 5 60n 0 90n 0 100n 5 130n 5 140n 0 170n 0 180n 5
+.tran 200n
+.include C:\Users\betul\OneDrive\Desktop\4-FALL\IC\C5_models.txt
+* Trailer cards described in this file:
+.include C:\Users\betul\OneDrive\Desktop\4-FALL\IC\C5_models.txt
+.END
