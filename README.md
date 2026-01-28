@@ -24,39 +24,22 @@ Each block includes:
 
 Finally, the 8-bit ALU was constructed by combining all 8-bit sub-blocks using a hierarchical multiplexer-based selection network.
 This methodology significantly improved:
-Debuggability
-Reusability
-Layout consistency
-Verification reliability
+✅Debuggability
+✅Reusability
+✅Layout consistency
+✅Verification reliability
 
 ⚙️ Supported Operations (Opcode Set)
 
 The ALU is controlled by a 4-bit opcode and supports the following operations:
 
-Opcode	Operation	Description
-0000	A + B	Addition
-0001	A − B	Subtraction
-0010	A & B	Bitwise AND
-0011	A | B	Bitwise OR
-0100	A ^ B	Bitwise XOR
-0101	~A	Bitwise NOT
-0110	A << 1	Logical left shift
-0111	A >> 1	Logical right shift
-1000	A × B	❌ Not implemented
-1001	A == B	Equality check
-1010	A > B	Greater than
-1011	A < B	Less than
-1100	A NAND B	Bitwise NAND
-1101	A NOR B	Bitwise NOR
-1110	A <<< 1	Arithmetic left shift
-1111	A >>> 1	Arithmetic right shift
+<img width="1600" height="1009" alt="Code_Generated_Image (1)" src="https://github.com/user-attachments/assets/3b46fd19-d4d1-40a9-a673-e6754df035a3" />
 
 ⚠️ Multiplication was excluded due to time constraints and high hardware complexity.
 
 🧩 Implemented Submodules
 
 Each of the following has:
-
 ✔ Transistor-level schematic
 ✔ Physical layout
 ✔ LTspice simulation
