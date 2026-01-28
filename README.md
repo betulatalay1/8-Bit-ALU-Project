@@ -108,7 +108,7 @@ Instead of building a flat 16:1 directly, I first created reusable 2:1 MUX cells
 Using transmission-gate-based 2:1 multiplexers instead of conventional CMOS MUXes significantly reduces transistor count and routing complexity, yielding a substantial area advantage in the opcode selection network.
 
 <img width="300" height="480" alt="image" src="https://github.com/user-attachments/assets/7a70d78b-dab0-49bc-9f59-52ae0b98efb5" />
-<img width="784" height="562" alt="image" src="https://github.com/user-attachments/assets/c2cc4757-30b6-4c26-8377-4ad07fe36630" />
+<img width="350" height="260" alt="image" src="https://github.com/user-attachments/assets/c2cc4757-30b6-4c26-8377-4ad07fe36630" />
 
 ✔ Full top-level ALU schematic is complete and verified.
 <img width="881" height="894" alt="image" src="https://github.com/user-attachments/assets/a8f3ad4f-dbf5-40d6-9dbc-e10ccfb20b6f" />
